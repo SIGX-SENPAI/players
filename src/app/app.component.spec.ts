@@ -1,11 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { VjsPlayerComponent } from './vjs-player/vjs-player.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        VjsPlayerComponent
       ],
     }).compileComponents();
   });
