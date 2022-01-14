@@ -3,7 +3,7 @@ import videojs from 'video.js';
 import '@devmobiliza/videojs-vimeo/dist/videojs-vimeo.esm';
 import '@devmobiliza/videojs-vimeo/dist/videojs-vimeo.cjs';
 import 'videojs-youtube';
-
+import 'videojs-seek-buttons';
 @Component({
   selector: 'app-vjs-player',
   template: `
@@ -38,8 +38,23 @@ export class VjsPlayerComponent implements OnInit, OnDestroy {
     this.player = videojs(this.target.nativeElement, this.options, function onPlayerReady() {
       console.log('onPlayerReady', this);
     });
+    this.player.seekButtons({
+      forward: 30,
+      back: 10
+    });
+    // this.player.currentTime (120)
   }
-
+  ngAfterViewChecked() {
+    console.log('duracion', this.player.currentTime ());
+    this.player.on('ended', function() {
+      console.log('video muerto')
+    });
+    // for (let i = 0; i < this.player.length; i++) {
+    //   this.player[i].addEventListener("ended", () =>{
+    //     console.log('deded<sa');
+    //   });
+    // }
+  }
   ngOnDestroy() {
     // destroy player
     if (this.player) {
