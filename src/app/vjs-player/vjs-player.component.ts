@@ -42,6 +42,35 @@ export class VjsPlayerComponent implements OnInit, OnDestroy {
       forward: 30,
       back: 10
     });
+    videojs('video', {
+      controls: true,
+      plugins: {
+          videoJsResolutionSwitcher: {
+            default: 'high',
+            dynamicLabel: true
+          }
+        }
+    }, function(){
+
+      // Add dynamically sources via updateSrc method
+      this.player.updateSrc([
+          {
+            src: 'http://media.xiph.org/mango/tears_of_steel_1080p.webm',
+            type: 'video/webm',
+            label: '360'
+          },
+          {
+            src: 'http://mirrorblender.top-ix.org/movies/sintel-1024-surround.mp4',
+            type: 'video/mp4',
+            label: '720'
+          }
+        ])
+
+        this.player.on('resolutionchange', function(){
+          console.info('Source changed to %s', this.player.src())
+        })
+
+    });
     // this.player.currentTime (120)
   }
   ngAfterViewChecked() {

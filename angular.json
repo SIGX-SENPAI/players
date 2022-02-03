@@ -28,12 +28,14 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/videojs-seek-buttons/dist/videojs-seek-buttons.css"
+              "node_modules/videojs-seek-buttons/dist/videojs-seek-buttons.css",
+              "node_modules/videojs-resolution-switcher-vjs7/videojs-resolution-switcher.css"
             ],
             "scripts": [
               "node_modules/video.js/dist/video.min.js",
               "node_modules/videojs-youtube/dist/Youtube.min.js",
-              "node_modules/videojs-seek-buttons/dist/videojs-seek-buttons.min.js"
+              "node_modules/videojs-seek-buttons/dist/videojs-seek-buttons.min.js",
+              "node_modules/videojs-resolution-switcher-vjs7/videojs-resolution-switcher.js"
             ]
           },
           "configurations": {
